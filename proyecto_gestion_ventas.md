@@ -43,7 +43,7 @@ realizó el trabajo.
 
 
  **a) Cómo se realizó el Trabajo Práctico**
-El trabajo se realizo Coordinandonos con un grupo de WattsApp, primero se realizo el modelo relacional a partir del cual se realizo el documento, luego se realizo el diccionario de datos.
+El trabajo se realizo coordinandonos con un grupo de WhatsApp, primero se realizo el modelo relacional a partir del cual se realizo el documento, luego se realizo el diccionario de datos.
 
  **b) Herramientas (Instrumentos y procedimientos)**
 El modelo relacional se realizo usando ERDPLUS siguiendo las convenciones de la catedra en el primer parcial y siguiendo las reglas relacionales de normalizacion de bases de datos. 
