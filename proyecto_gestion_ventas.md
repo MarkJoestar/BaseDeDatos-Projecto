@@ -23,6 +23,10 @@ Sistema de Gestión de ventas para un supermercado.
 
 El objetivo de estudio es realizar ventas sin perder el control de lo que se vende, a quién se vende, cómo se vende, además de saber quien lo está vendiendo. Dentro de la problemática, se incluye los montos y cantidades de productos, los cuáles tienen un proveedor y una categoria. 
 
+
+###  Objetivo del Trabajo Práctico.
+El trabajo fue realizo para comprender la organizacion de los datos en un sistemas de ventas, gracias a esto se podra observar las entidades ue realizan las compras y ventas dentro del sistema y los elementos que operan. Ademas de poder vizualizar un sistema de gestion de roles y tipos de usuario, tipos de categorias de productos y provedores de los mismos.
+
 ## CAPITULO II: MARCO CONCEPTUAL O REFERENCIAL
 
 **TEMA 1 " ---- "** 
