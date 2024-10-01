@@ -61,7 +61,7 @@ El modelo relacional se realizo usando ERDPLUS siguiendo las convenciones de la 
 
 ### Diccionario de datos
 
-Acceso al documento [PDF](doc/diccionario_datos.pdf) del diccionario de datos.
+Acceso al documento [PDF](doc/diccionario_de_datos_bdd.pdf) del diccionario de datos.
 
 
 ### Desarrollo TEMA 1 "----"
