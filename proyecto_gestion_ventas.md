@@ -7,9 +7,10 @@
 **Asignatura**: Bases de Datos I (FaCENA-UNNE)
 
 **Integrantes**:
- - Ojeda, Lucas Fernando DNI 45.845.469.
- -Barrios, Cesar Pietro DNI 44.542.063
- - In tincidunt augue sed molestie malesuada.
+ - Barrios, Cesar Pietro DNI 44.542.063
+ - Caballero, Agustin DNI 43.452.430
+ - Ojeda, Lucas Fernando DNI 45.845.469
+ 
 
 **Año**: 2024
 
