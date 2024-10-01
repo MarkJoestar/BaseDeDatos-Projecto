@@ -25,7 +25,7 @@ El objetivo de estudio es realizar ventas sin perder el control de lo que se ven
 
 
 ###  Objetivo del Trabajo Práctico.
-El trabajo fue realizo para comprender la organizacion de los datos en un sistemas de ventas, gracias a esto se podra observar las entidades ue realizan las compras y ventas dentro del sistema y los elementos que operan. Ademas de poder vizualizar un sistema de gestion de roles y tipos de usuario, tipos de categorias de productos y provedores de los mismos.
+El trabajo fue realizo para comprender la organización de los datos en un sistemas de ventas, gracias a esto se podra observar las entidades que realizan las compras y ventas dentro del sistema y los elementos que operan. Ademas de poder visualizar un sistema de gestion de roles y tipos de usuario, tipos de categorias de productos y proveedores de los mismos.
 
 ## CAPITULO II: MARCO CONCEPTUAL O REFERENCIAL
 
