@@ -43,8 +43,8 @@ Donec lobortis tincidunt erat, non egestas mi volutpat in. Cras ante purus, luct
 
 ## CAPÍTULO IV: DESARROLLO DEL TEMA / PRESENTACIÓN DE RESULTADOS 
 
-Maecenas molestie lacus tincidunt, placerat dolor et, ullamcorper erat. Mauris tortor nisl, ultricies ac scelerisque nec, feugiat in nibh. Pellentesque interdum aliquam magna sit amet rutrum. 
-
+¿Por qué es necesario un sistema de gestión de ventas? El software se hace necesario para un supermercado para que este mismo genere rentabilidad, saber que el comercio obtiene ganancias al vender sus productos y se tiene conocimiento de los productos que aún están disponibles para su venta.
+Existen distintos medios de pagos en la actualidad, y no todos utilizan el mismo método.
 
 
 ### Diagrama conceptual (opcional)
