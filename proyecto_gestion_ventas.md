@@ -27,6 +27,7 @@ El objetivo de estudio es realizar ventas sin perder el control de lo que se ven
 
 Existen distintos medios de pagos en la actualidad, y no todos utilizan el mismo método. Por ejemplo, Argentina realiza pagos con billeteras digitales en un 31% de las transacciones. También, se piden los datos del cliente para poder generar la factura final.
 
+Definimos distintos roles para los usuarios del sistema, para así poder asignar distintos tipos de permisos. Los vendedores se dedican exclusivamente a vender y los administradores son los encargados del manejo de productos.
 
 
 ###  Objetivo del Trabajo Práctico.
