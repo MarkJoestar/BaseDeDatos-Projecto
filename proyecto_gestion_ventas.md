@@ -8,7 +8,7 @@
 
 **Integrantes**:
  - Ojeda, Lucas Fernando DNI 45.845.469.
- - Sed ac justo ac mauris porttitor convallis non sit amet felis.
+ -Barrios, Cesar Pietro DNI 44.542.063
  - In tincidunt augue sed molestie malesuada.
 
 **Año**: 2024
