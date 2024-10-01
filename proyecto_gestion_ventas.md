@@ -21,7 +21,7 @@ Sistema de Gestión de ventas para un supermercado.
 
 ### Definición o planteamiento del problema
 
-El objetivo de estudio es realizar ventas sin perder el control de lo que se vende, a quién se vende, cómo se vende, además de saber quien lo está vendiendo. Dentro de la problemática, se incluye los montos y cantidades de productos, los cuáles tienen un proveedor y una categoria la categoría. 
+El objetivo de estudio es realizar ventas sin perder el control de lo que se vende, a quién se vende, cómo se vende, además de saber quien lo está vendiendo. Dentro de la problemática, se incluye los montos y cantidades de productos, los cuáles tienen un proveedor y una categoria. 
 
 ## CAPITULO II: MARCO CONCEPTUAL O REFERENCIAL
 
