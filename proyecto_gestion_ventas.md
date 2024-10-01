@@ -73,8 +73,5 @@ Acceso al documento [PDF](doc/diccionario_de_datos_bdd.pdf) del diccionario de d
 ## BIBLIOGRAFÍA DE CONSULTA
 
  1. Soledad Navarro, 01/05/2024, Cómo pagan los argentinos: ¿Prefieren el efectivo, las tarjetas de crédito o débito, o las billeteras virtuales?, Clarín
- 2. List item
- 3. List item
- 4. List item
- 5. List item
+
 
