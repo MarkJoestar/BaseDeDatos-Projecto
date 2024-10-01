@@ -59,7 +59,7 @@ El modelo relacional se realizo usando ERDPLUS siguiendo las convenciones de la 
 ## CAPÍTULO IV: DESARROLLO DEL TEMA / PRESENTACIÓN DE RESULTADOS 
 
 ### Diagrama relacional
-![diagrama_relacional](https://github.com/MarkJoestar/BaseDeDatos-Projecto/blob/main/doc/modelo%20relacional.jfif)
+![diagrama_relacional](https://github.com/MarkJoestar/BaseDeDatos-Projecto/blob/main/doc/modelo_relacional.png)
 
 ### Diccionario de datos
 
