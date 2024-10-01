@@ -65,6 +65,11 @@ El modelo relacional se realizo usando ERDPLUS siguiendo las convenciones de la 
 
 Acceso al documento [PDF](doc/diccionario_de_datos_bdd.pdf) del diccionario de datos.
 
+### Desarrollo TEMA 1 "----"
+
+Script de tablas
+
+> Acceder a la siguiente carpeta para la descripción completa del tema [scripts-> tema_1](script/tema01_nombre_tema)
 ## CAPÍTULO V: CONCLUSIONES
 ------
 
