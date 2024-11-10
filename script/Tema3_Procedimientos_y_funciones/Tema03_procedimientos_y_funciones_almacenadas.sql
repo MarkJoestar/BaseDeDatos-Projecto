@@ -1,11 +1,11 @@
 --AGREGAR
 CREATE PROCEDURE InsertarProducto
-    @IdProducto
+    @IdProducto int,
     @Codigo VARCHAR(50),
     @Nombre VARCHAR(50),
     @Descripcion VARCHAR(255),
     @Stock INT,
-    @Precio DECIMAL(10,2)
+    @Precio DECIMAL(10,2),
     @Estado INT,
     @Categoria_id INT
 AS
