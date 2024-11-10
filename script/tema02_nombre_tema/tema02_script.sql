@@ -14,19 +14,19 @@ GRANT EXECUTE ON SistemaCompras_Proyecto_BdD.sp_InsertarProducto TO usuarioVisit
 USE SistemaCompras_Proyecto_BdD;
 GO
 EXECUTE AS USER = 'usuarioAdministrador';
-INSERT INTO Productos (Nombre, Precio) VALUES ('Producto Nuevo', 19.99);
+/*Ejecutar procedimiento como administrador*/
 REVERT;
 
--- Conectarse como usuarioLector
+-- Conectarse como usuarioVisitante
 USE tienda;
 GO
-EXECUTE AS USER = 'usuarioLector';
+EXECUTE AS USER = 'usuarioVisitante';
 INSERT INTO Productos (Nombre, Precio) VALUES ('Otro Producto', 29.99);
 REVERT;
 
 -- Intentar insertar un producto usando el procedimiento almacenado con el usuario lector
 USE tienda;
 GO
-EXECUTE AS USER = 'usuarioLector';
-EXEC sp_InsertarProducto 'Producto desde procedimiento', 9.99;
+EXECUTE AS USER = 'usuarioVisitante';
+/*Ejecutar procedimiento como visitante*/
 REVERT;
