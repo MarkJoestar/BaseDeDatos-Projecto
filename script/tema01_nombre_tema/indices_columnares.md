@@ -29,7 +29,23 @@ Creamos un indice columnar en la nueva tabla
 
 ![image](https://github.com/user-attachments/assets/0e24d6ba-dca6-444e-99c0-1f982e8a3909)
 
-Vamos a utilizar el siguiente stript para realizar una comparacion entre la tabla ventanuevo 
+Vamos a utilizar el siguiente stript para realizar una comparacion entre la tabla ventanuevo original y ventanuevo con indices columnares implementados 
+
+-- Consulta en ventanuevo (original sin indices columnares)
+SELECT SUM(CONVERT(BIGINT, MontoTotal)) AS TotalVentas
+FROM ventanuevo
+WHERE FechaRegistro BETWEEN '2015-01-01' AND '2020-12-31';
+
+-- Consulta en VentaNuevo1 (con indices columnares)
+SELECT SUM(CONVERT(BIGINT, MontoTotal)) AS TotalVentas
+FROM VentaNuevo1
+WHERE FechaRegistro BETWEEN '2015-01-01' AND '2020-12-31';
+
+Resultados:
+![image](https://github.com/user-attachments/assets/5e6186e2-421f-4f5d-b8a3-a189b2b515f2)
+Conclusion:
+Se puede observar que si bien el tiempo total es menor en la tabla que no tiene indices columnares la carga de procesamiento fue casi la misma en ambas consultas, esto pude indicar que los indices columnares mejoran el tiempo de ejecucion gracias a el acceso mas rapido a las columnas de las tablas que a travez de un procesamiento mas eficiente ya que los indices columnares mejoran la eficiencia al permitir extraer y guardar en la ram solo columnas especificas. Ademas, Si el volumen de datos aumenta, es probable que la diferencia de rendimiento entre la tabla con y sin índice columnar se amplíe. 
+
 
 
 
