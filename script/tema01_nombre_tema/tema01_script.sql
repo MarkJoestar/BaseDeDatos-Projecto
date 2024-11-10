@@ -128,3 +128,82 @@ CREATE TABLE Detalle_Compra
   CONSTRAINT FK_Detalle_Compra_Producto FOREIGN KEY (Id_Producto) REFERENCES Producto(Id_Producto)
 );
 GO
+
+
+USE DATABASE SistemaCompras_Proyecto_BdD
+GO
+
+
+
+CREATE TABLE VentaNuevo1 (
+    id_Venta INT PRIMARY KEY,
+    MontoPago INT,
+    MontoTotal INT,
+    FechaRegistro DATE,
+    Id_Usuario INT,
+    Id_Cliente INT
+);
+
+
+DECLARE @contador INT = 0;
+
+DECLARE @cantidadTotal INT = 1000000;  -- Número total de registros que queremos insertar
+
+-- Generamos los registros de prueba
+WHILE @contador < @cantidadTotal
+BEGIN
+    INSERT INTO VentaNuevo1 (id_Venta, MontoPago, MontoTotal, FechaRegistro, Id_Usuario, Id_Cliente)
+    VALUES (
+        -- id_Venta será incremental para cada registro
+        @contador + 1,
+        
+        -- Genera un valor aleatorio para MontoPago entre 100 y 5000
+        ABS(CHECKSUM(NEWID()) % 4900) + 100,
+        
+        -- Genera un valor aleatorio para MontoTotal entre 500 y 10000
+        ABS(CHECKSUM(NEWID()) % 9500) + 500,
+        
+        -- Genera una fecha aleatoria en un rango de 10 años desde 2010
+        DATEADD(DAY, ABS(CHECKSUM(NEWID()) % 3650), '2010-01-01'),
+        
+        -- Genera un Id_Usuario aleatorio entre 1 y 1000
+        ABS(CHECKSUM(NEWID()) % 1000) + 1,
+        
+        -- Genera un Id_Cliente aleatorio entre 1 y 1000
+        ABS(CHECKSUM(NEWID()) % 1000) + 1
+    );
+
+    -- Incrementa el contador
+    SET @contador = @contador + 1;
+
+    -- Cada 1000 registros, imprime un mensaje para mostrar el progreso
+    IF @contador % 1000 = 0
+    BEGIN
+        PRINT CONCAT('Insertados ', @contador, ' registros...');
+    END
+END;
+
+PRINT 'Carga masiva completada.';
+
+
+CREATE COLUMNSTORE INDEX IX_Columna_VentaNueva
+ON VentaNuevo1 (id_Venta, MontoPago, FechaRegistro, Id_Usuario, Id_Cliente);
+
+SUM(CONVERT(BIGINT, MontoTotal))
+select * from ventanuevo
+
+SET STATISTICS TIME ON;
+
+-- Consulta en ventanuevo
+SELECT SUM(CONVERT(BIGINT, MontoTotal)) AS TotalVentas
+FROM ventanuevo
+WHERE FechaRegistro BETWEEN '2015-01-01' AND '2020-12-31';
+
+-- Consulta en VentaNuevo1
+SELECT SUM(CONVERT(BIGINT, MontoTotal)) AS TotalVentas
+FROM VentaNuevo1
+WHERE FechaRegistro BETWEEN '2015-01-01' AND '2020-12-31';
+
+SET STATISTICS TIME OFF;
+
+
