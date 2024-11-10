@@ -13,6 +13,8 @@ BEGIN
     VALUES (@Codigo, @Nombre, @Descripcion, @Stock, @Precio, @Estado, @Categoria_id);
 END
 
+--EJEMPLO
+    EXECUTE Insertar Producto 'c44', 'Arroz Danubio', 'Arroz Marca Danubio De 500grs', 45, 1500.00, 1, 4;
   
 --MODIFICAR
 --Agregar cantidad a un producto
