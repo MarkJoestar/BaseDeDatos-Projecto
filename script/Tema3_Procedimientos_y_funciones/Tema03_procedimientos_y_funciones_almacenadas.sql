@@ -15,7 +15,7 @@ BEGIN
 END
 
 --EJEMPLO
-    EXECUTE Insertar Producto 1, 'c44', 'Arroz Danubio', 'Arroz Marca Danubio De 500grs', 45, 1500.00, 1, 4;
+    EXECUTE InsertarProducto 1, 'c44', 'Arroz Danubio', 'Arroz Marca Danubio De 500grs', 45, 1500.00, 1, 4;
   
 --MODIFICAR
 --Agregar cantidad a un producto
@@ -65,3 +65,7 @@ INSERT INTO Producto (Id_Producto, Codigo, Nombre, Descripcion, Stock, Precio, E
 INSERT INTO Producto (Id_Producto, Codigo, Nombre, Descripcion, Stock, Precio, Estado, Categoria_id) VALUES (3, 'C09', 'Lata Durazno', 'Durazno Enlatado', 49, 2430.00, 1, 2)
 INSERT INTO Producto (Id_Producto, Codigo, Nombre, Descripcion, Stock, Precio, Estado, Categoria_id) VALUES (4, 'A10', 'Lata Durazno', 'Durazno Enlatado', 49, 2430.00, 1, 1)
 
+EXECUTE InsertarProducto 5, 'c44', 'Arroz Danubio', 'Arroz Marca Danubio De 500grs', 45, 1500.00, 1, 4;
+EXECUTE InsertarProducto 6, 'c44', 'Arroz Danubio', 'Arroz Marca Danubio De 500grs', 45, 1500.00, 1, 4;
+EXECUTE InsertarProducto 7, 'c44', 'Arroz Danubio', 'Arroz Marca Danubio De 500grs', 45, 1500.00, 1, 4;
+EXECUTE InsertarProducto 8, 'c44', 'Arroz Danubio', 'Arroz Marca Danubio De 500grs', 45, 1500.00, 1, 4;
