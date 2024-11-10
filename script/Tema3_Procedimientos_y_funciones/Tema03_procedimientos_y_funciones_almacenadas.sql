@@ -1,24 +1,41 @@
+--AGREGAR
+CREATE PROCEDURE InsertarProducto
+    @Codigo VARCHAR(50),
+    @Nombre VARCHAR(50),
+    @Descripcion VARCHAR(255),
+    @Stock INT,
+    @Precio DECIMAL(10,2)
+    @Estado INT,
+    @Categoria_id INT
+AS
+BEGIN
+    INSERT INTO Producto (Codigo, Nombre, Descripcion, Stock, Precio, Estado, Categoria_id)
+    VALUES (@Codigo, @Nombre, @Descripcion, @Stock, @Precio, @Estado, @Categoria_id);
+END
+
+  
 --MODIFICAR
 --Agregar cantidad a un producto
 CREATE PROCEDURE AgregarCantidadProducto
---Par·metros
+--Par√°metros
 @IdProducto as int,
 @Cantidad as int
 AS
 --Actualiza Cantidad
 UPDATE Producto set Stock=Stock+@Cantidad
---Indicar a quÈ producto se le agrega cantidad
+--Indicar a qu√© producto se le agrega cantidad
 Where Id_Producto=@IdProducto
 
-
+--VERIFICACI√ìN
+--EXECUTE AgregarCantidadProducto 12, 5
 
 --Quitar cantidad a un producto
 CREATE PROCEDURE QuitarCantidadProducto
---Par·metros
+--Par√°metros
 @IdProducto as int,
 @Cantidad as int
 AS
 --Actualiza Cantidad
 UPDATE Producto set Stock=Stock-@Cantidad
---Indicar a quÈ producto se le quita cantidad
+--Indicar a qu√© producto se le quita cantidad
 Where Id_Producto=@IdProducto
