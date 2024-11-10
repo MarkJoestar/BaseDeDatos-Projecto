@@ -29,8 +29,6 @@ UPDATE Producto set Stock=Stock+@Cantidad
 --Indicar a qué producto se le agrega cantidad
 Where Id_Producto=@IdProducto
 
---VERIFICACIÓN
---EXECUTE AgregarCantidadProducto 12, 5
 
 --Quitar cantidad a un producto
 CREATE PROCEDURE QuitarCantidadProducto
@@ -54,10 +52,6 @@ BEGIN
 END
 
 
---EJEMPLO
-EXECUTE EliminarProducto 1;
-
-
 --Insertar un lote de datos en las tablas mencionadas  (guardar el script) con sentencias insert y otro lote invocando a los procedimientos creados. 
 
 INSERT INTO Producto (Id_Producto, Codigo, Nombre, Descripcion, Stock, Precio, Estado, Categoria_id) VALUES (1, 'A04', 'Lata Durazno', 'Durazno Enlatado', 49, 2430.00, 1, 3)
@@ -69,3 +63,12 @@ EXECUTE InsertarProducto 5, 'c44', 'Arroz Danubio', 'Arroz Marca Danubio De 500g
 EXECUTE InsertarProducto 6, 'c44', 'Arroz Danubio', 'Arroz Marca Danubio De 500grs', 45, 1500.00, 1, 4;
 EXECUTE InsertarProducto 7, 'c44', 'Arroz Danubio', 'Arroz Marca Danubio De 500grs', 45, 1500.00, 1, 4;
 EXECUTE InsertarProducto 8, 'c44', 'Arroz Danubio', 'Arroz Marca Danubio De 500grs', 45, 1500.00, 1, 4;
+
+--Realizar  update y delete sobre  algunos de los registros insertados  en esas tablas invocando a los procedimientos. 
+
+--DELETE
+EXECUTE EliminarProducto 1;
+EXECUTE EliminarProducto 3;
+--UPDATE
+EXECUTE AgregarCantidadProducto 4, 5
+EXECUTE AgregarCantidadProducto 8, 15
