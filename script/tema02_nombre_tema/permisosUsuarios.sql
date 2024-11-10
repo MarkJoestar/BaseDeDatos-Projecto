@@ -15,7 +15,7 @@ USE SistemaCompras_Proyecto_BdD;
 GO
 EXECUTE AS USER = 'Administrador';
 /*Ejecutar procedimiento como administrador*/
-REVERT;
+REVERT; /*revert finaliza la sentencia de execute para que no se ejecuten mas comandos como el determinado usuario*/
 
 -- Conectarse como Vendedor
 USE tienda;
