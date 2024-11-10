@@ -52,7 +52,8 @@ END
 
 
 --Insertar un lote de datos en las tablas mencionadas  (guardar el script) con sentencias insert y otro lote invocando a los procedimientos creados. 
-
+-- Para cargar los productos deben existir categorías creadas
+-- Id_producto se rellena automáticamente
 INSERT INTO Producto (Codigo, Nombre, Descripcion, Stock, Precio, Estado, Categoria_id) VALUES ('A04', 'Lata Durazno', 'Durazno Enlatado', 49, 2430.00, 1, 3)
 INSERT INTO Producto (Codigo, Nombre, Descripcion, Stock, Precio, Estado, Categoria_id) VALUES ('B44', 'Azucar AG', 'Azucar de un kilogramo', 459, 2000.00, 1, 3)
 INSERT INTO Producto (Codigo, Nombre, Descripcion, Stock, Precio, Estado, Categoria_id) VALUES ('C09', 'Lata Durazno', 'Durazno Enlatado', 49, 2430.00, 1, 2)
