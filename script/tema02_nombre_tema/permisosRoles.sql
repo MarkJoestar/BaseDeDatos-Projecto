@@ -9,6 +9,13 @@ GRANT SELECT ON /*precedimiento*/ TO Rol1;
 -- Asignar el rol al usuario1
 GRANT Rol1 TO usuario1;
 
+-- Crear el rol Administrador
+CREATE ROLE Administrador;
+GRANT ALL PRIVILEGES ON *.* TO Rol2;
+
+-- Asignar el rol al usuario2
+GRANT Rol2 TO usuario2;
+
 -- Intentar leer la tabla Libros desde ambos usuarios
 -- Conectarse como usuario1
 USE SistemaCompras_Proyecto_BdD;
