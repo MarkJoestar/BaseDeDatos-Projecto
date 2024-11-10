@@ -41,3 +41,17 @@ AS
 UPDATE Producto set Stock=Stock-@Cantidad
 --Indicar a qué producto se le quita cantidad
 Where Id_Producto=@IdProducto
+
+    
+--ELIMINAR PRODUCTO
+CREATE PROCEDURE EliminarProducto
+@IdProducto Int
+AS
+BEGIN
+    DELETE FROM Producto
+    WHERE Id_Producto = @IdProducto;
+END
+
+
+--EJEMPLO
+EXECUTE EliminarProducto 1;
