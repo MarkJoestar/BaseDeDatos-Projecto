@@ -1,25 +1,25 @@
 -- Crear los usuarios
-CREATE USER usuario1 WITH PASSWORD = 'password123';
-CREATE USER usuario2 WITH PASSWORD = 'password456';
+CREATE USER usuario1 WITH PASSWORD = '1234';
+CREATE USER usuario2 WITH PASSWORD = '5678';
 
 -- Crear el rol Lector
 CREATE ROLE Lector;
-GRANT SELECT ON Libros TO Lector;
+GRANT SELECT ON /*precedimiento*/ TO Rol1;
 
 -- Asignar el rol al usuario1
-GRANT Lector TO usuario1;
+GRANT Rol1 TO usuario1;
 
 -- Intentar leer la tabla Libros desde ambos usuarios
 -- Conectarse como usuario1
-USE libreria;
+USE SistemaCompras_Proyecto_BdD;
 GO
 EXECUTE AS USER = 'usuario1';
-SELECT * FROM Libros;
+/*precedimiento*/;
 REVERT;
 
 -- Conectarse como usuario2
-USE libreria;
+USE SistemaCompras_Proyecto_BdD;
 GO
 EXECUTE AS USER = 'usuario2';
-SELECT * FROM Libros;
+/*precedimiento*/;
 REVERT;
