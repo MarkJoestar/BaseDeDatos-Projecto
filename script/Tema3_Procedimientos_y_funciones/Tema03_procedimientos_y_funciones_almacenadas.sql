@@ -105,3 +105,9 @@ BEGIN
 	SET descuento = Precio * 0.85;
 	RETURN descuento;
 END;
+
+--Comparar la eficiencia de las operaciones directas versus el uso de procedimientos y funciones.
+Para consultas simples y únicas, las operaciones directas pueden ser más prácticas. Para consultas complejas 
+o con operaciones repetitivas, el uso de procedimientos y funciones almacenadas es más eficiente.
+Esto debido a que puede llevar más tiempo que escribir consultas directas pero se compila y optimizan una sola vez,
+en llamadas posteriores tendrá una ejecución más rápida
