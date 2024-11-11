@@ -56,13 +56,13 @@ END
 -- Id_producto se rellena automáticamente
 INSERT INTO Producto (Codigo, Nombre, Descripcion, Stock, Precio, Estado, Categoria_id) VALUES ('A04', 'Lata Durazno', 'Durazno Enlatado', 49, 2430.00, 1, 3)
 INSERT INTO Producto (Codigo, Nombre, Descripcion, Stock, Precio, Estado, Categoria_id) VALUES ('B44', 'Azucar AG', 'Azucar de un kilogramo', 459, 2000.00, 1, 3)
-INSERT INTO Producto (Codigo, Nombre, Descripcion, Stock, Precio, Estado, Categoria_id) VALUES ('C09', 'Lata Durazno', 'Durazno Enlatado', 49, 2430.00, 1, 2)
-INSERT INTO Producto (Codigo, Nombre, Descripcion, Stock, Precio, Estado, Categoria_id) VALUES ('A10', 'Lata Durazno', 'Durazno Enlatado', 49, 2430.00, 1, 1)
+INSERT INTO Producto (Codigo, Nombre, Descripcion, Stock, Precio, Estado, Categoria_id) VALUES ('C09', 'Coca Cola', 'Coca cola de vidrio 1.5lt', 49, 2000.00, 1, 5)
+INSERT INTO Producto (Codigo, Nombre, Descripcion, Stock, Precio, Estado, Categoria_id) VALUES ('C10', 'Fanta', 'Fanta Naranja retornable 2LT', 56, 2000.00, 1, 5)
 
-EXECUTE InsertarProducto 'c44', 'Arroz Danubio', 'Arroz Marca Danubio De 500grs', 45, 1500.00, 1, 4;
-EXECUTE InsertarProducto 'c44', 'Arroz Danubio', 'Arroz Marca Danubio De 500grs', 45, 1500.00, 1, 4;
-EXECUTE InsertarProducto 'c44', 'Arroz Danubio', 'Arroz Marca Danubio De 500grs', 45, 1500.00, 1, 4;
-EXECUTE InsertarProducto 'c44', 'Arroz Danubio', 'Arroz Marca Danubio De 500grs', 45, 1500.00, 1, 4;
+EXECUTE InsertarProducto 'B14', 'Arroz Danubio 1kg', 'Arroz Marca Danubio De 1kg', 55, 2500.00, 1, 4;
+EXECUTE InsertarProducto 'B12', 'Arroz Danubio 500grs', 'Arroz Marca Danubio De 500grs', 45, 1500.00, 1, 4;
+EXECUTE InsertarProducto 'B04', 'Fideos La Providencia', 'Fideos La Providencia en todas las presentaciones', 83, 2000.00, 1, 4;
+EXECUTE InsertarProducto 'B33', 'Sal Fina', 'Sal Fina Celusal', 15, 1200.00, 1, 4;
 
 --Realizar  update y delete sobre  algunos de los registros insertados  en esas tablas invocando a los procedimientos. 
 
@@ -75,4 +75,6 @@ EXECUTE AgregarCantidadProducto 8, 15
 
 --FUNCION
 --FUNCION PRODUCTO QUE MUESTRE UN PRODUCTO MENOR A TAL PRECIO
+CREATE FUNCTION
 --FUNCION QUE MUESTRE STOCK DE TAL PRODUCTO
+--FUNCION QUE MUESTRE DESCUENTO 15%
