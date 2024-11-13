@@ -50,27 +50,7 @@ realizó el trabajo.
 
 
  **a) Cómo se realizó el Trabajo Práctico**
-Tema Indices Columnares:
-Vamos a usar esta tabla
 
-![image](https://github.com/user-attachments/assets/ac817fd5-e55b-403b-9abf-df537e63d367)
-
-
-La renombramos 
-
-![image](https://github.com/user-attachments/assets/6faa06eb-7e11-4621-8fd1-4119c6e5de85)
-
-Vamos a usar este script para hacer la insercion de un millon de registros a la nueva tabla
-
-![image](https://github.com/user-attachments/assets/89601504-7a85-49d3-8d45-b357981b863d)
-
-Creamos un indice columnar en la nueva tabla 
-
-![image](https://github.com/user-attachments/assets/0e24d6ba-dca6-444e-99c0-1f982e8a3909)
-
-Vamos a utilizar el siguiente stript para realizar una comparacion entre la tabla ventanuevo original y ventanuevo con indices columnares implementados 
-
-![image](https://github.com/user-attachments/assets/72ced864-4b6e-409f-b9b9-b9cc54f03ac4)
 
  **b) Herramientas (Instrumentos y procedimientos)**
 El modelo relacional se realizo usando ERDPLUS siguiendo las convenciones de la catedra en el primer parcial y siguiendo las reglas relacionales de normalizacion de bases de datos. 
@@ -186,11 +166,33 @@ Cuando hacemos una peticion a traves de select, sql primero tiene que cargar a c
 ![image](https://github.com/user-attachments/assets/0f993f3f-fee8-44f5-ba8e-a8a14acb1575)
 
 El indice columnar cambia la estructura en la que se guardan los datos en la pagina y entonces cada atributo se guarda en una pagina diferente, asi cuando se hace una consulta pidiendo unicamente ciertos atributos solo tiene que cargar las paginas de los atributos solicitados en la consulta en vez de cargar todas las paginas de datos
+
+Vamos a usar esta tabla
+
+![image](https://github.com/user-attachments/assets/ac817fd5-e55b-403b-9abf-df537e63d367)
+
+
+La renombramos 
+
+![image](https://github.com/user-attachments/assets/6faa06eb-7e11-4621-8fd1-4119c6e5de85)
+
+Vamos a usar este script para hacer la insercion de un millon de registros a la nueva tabla
+
+![image](https://github.com/user-attachments/assets/89601504-7a85-49d3-8d45-b357981b863d)
+
+Creamos un indice columnar en la nueva tabla 
+
+![image](https://github.com/user-attachments/assets/0e24d6ba-dca6-444e-99c0-1f982e8a3909)
+
+Vamos a utilizar el siguiente stript para realizar una comparacion entre la tabla ventanuevo original y ventanuevo con indices columnares implementados 
+
+![image](https://github.com/user-attachments/assets/72ced864-4b6e-409f-b9b9-b9cc54f03ac4)
+
 Resultados del script de indices Columnares:
 
 ![image](https://github.com/user-attachments/assets/5e6186e2-421f-4f5d-b8a3-a189b2b515f2)
 
-Conclusion Indices Columnares:
+### Conclusion indices columnares:
 Se puede observar que si bien el tiempo total es menor en la tabla que no tiene indices columnares la carga de procesamiento fue casi la misma en ambas consultas, esto pude indicar que los indices columnares mejoran el tiempo de ejecucion gracias a el acceso mas rapido a las columnas de las tablas que a travez de un procesamiento mas eficiente ya que los indices columnares mejoran la eficiencia al permitir extraer y guardar en la ram solo columnas especificas. Ademas, Si el volumen de datos aumenta, es probable que la diferencia de rendimiento entre la tabla con y sin índice columnar se amplíe. 
 
 
