@@ -161,7 +161,11 @@ Al ejecutar la lógica en el servidor, se minimiza la cantidad de datos que nece
 ### EJEMPLO DE USO DE FUNCIONES ALMACENADAS PARA CALCULAR EDAD:
 ![funcion](https://github.com/user-attachments/assets/0853db13-e31f-45ab-9437-6626e5ca6fe0)
 
+### OPERACIÓN DIRECTA
+![rendimiento](https://github.com/user-attachments/assets/8d96130b-5d21-48a7-a392-9e0728e81ffa)
 
+### PROCEDIMIENTO ALMACENADO
+![RENDIMIENTO 2](https://github.com/user-attachments/assets/4adc7fa1-c6db-426f-8722-312f0b94e7ce)
 
 ### Conclusion Procedimientos y funciones almacenadas:
 Para consultas simples y únicas, las operaciones directas pueden ser más prácticas. Para consultas complejas o con operaciones repetitivas, el uso de procedimientos y funciones almacenadas es más eficiente.
