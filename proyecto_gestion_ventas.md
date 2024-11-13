@@ -106,26 +106,33 @@ Tipos de permisos:
 -VIEW DEFINITION: Permite ver la definición de un objeto.
 
 ![poj2](https://github.com/user-attachments/assets/1d6f98a5-5837-4f60-9786-ca072cf2e9ca)
+
 Se crean usuarios para otorgar permisos a nivel de usuario. Al usuario ReadOnlyUser se le otorga el permiso para realizar el comando de "Select On" lo cual significa que puede leer la tabla producto.
 En cuanto a AdminUser se ejecuta la sentencia de db_owner, lo cual le da al permiso de administrador.
 
 ![poj3](https://github.com/user-attachments/assets/394113ea-ea69-4d97-8103-afdc4e3ab28d)
+
 Se crea el procedimiento Insertar producto y se le da permiso de ejecutarlo al usuario ReadOnlyUser
 
 ![poj4](https://github.com/user-attachments/assets/764e1b51-e238-4b41-93d6-005ef4de2152)
+
 Se agregan 2 items a la tabla producto, uno mediante un insert comun por parte del administrador y otro medainte la ejecucion del procedimiento.
 
 ![poj5](https://github.com/user-attachments/assets/c5508790-bc87-4c62-9e1a-916764d368ef)
+
 Se crrean nuevos usuarios pero esta vez para otorgar permisos a nivel de roles del DBMS. Para eso se deben crear roles y designarselos a los usuarios, lo cual se ve tras la creacion del Rol 'RolLectura'.
 
 ![poj6](https://github.com/user-attachments/assets/c79a6dbb-6875-4fa7-8f3d-c037e95a3eae)
+
 Se utiliza grant para especificar que el rol de 'RolLectura' puede ejecutar 'Select on producto'
 El comando sp_addrolemember se utiliza para otorgar el rol 'RolLectura' al Usuario3.
 
 ![poj7](https://github.com/user-attachments/assets/526d114a-26de-4c42-8323-4434feb4d5ba)
+
 Ambos usuarios ejecutan la sentencia de 'Select * from producto'. Como solo Usuario 3, tiene permiso es el unico que podra leer la lista de productos.
 
 ![poj1](https://github.com/user-attachments/assets/1b768f8a-f170-413f-9dd5-7a494eda08fb)
+
 En el caso de Usuairo 4, como no tiene permiso para ajecutar la sentencia, ocuure el error de 'permiso no permitido'
 
 Tema Indices Columnares:
