@@ -139,6 +139,8 @@ CONLCUSION:
 
 Los permisos SQL son fundamentales para controlar y gestionar el acceso a recursos y datos en un servidor de bases de datos. Es útil utilizarlos en situaciones que requieren seguridad, control de acceso, optimización de recursos, cumplimiento con regulaciones y auditoría.
 
+
+
 Tema Procedimientos y funciones almacenadas:
 Un procedimiento almacenado es un conjunto de instrucciones SQL que se almacena asociado a una base de datos. El cual se crea con la sentencia CREATE PROCEDURE y se invoca con la sentencia EXECUTE. Un procedimiento puede tener cero o muchos parámetros de entrada y cero o muchos parámetros de salida. Las funciones, en cambio, son un conjunto de instrucciones que siempre retornan un valor, estas pueden ser utilizadas en expresiones y consultas.
 
@@ -161,6 +163,7 @@ EJEMPLO DE USO DE FUNCIONES ALMACENADAS PARA CALCULAR EDAD:
 
 Conclusion Procedimientos y funciones almacenadas:
 Para sacar el máxima provecho, la correcta integración de un sistema que use ambos, sería utilizar procedimientos almacenados para comunicarse y enviar datos a la aplicación; mientras que las funciones se usan para procesar datos internamente dentro del procedimiento almacenado.
+
 
 Tema Indices Columnares:
 ![image](https://github.com/user-attachments/assets/f405c525-1f86-44b0-9f48-e176538f05e4)
