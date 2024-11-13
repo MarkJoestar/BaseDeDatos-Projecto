@@ -78,6 +78,56 @@ El modelo relacional se realizo usando ERDPLUS siguiendo las convenciones de la 
 
 ## CAPÍTULO IV: DESARROLLO DEL TEMA / PRESENTACIÓN DE RESULTADOS 
 
+Tema permisos:
+En SQL Server, los permisos se utilizan para controlar el acceso a los objetos de la base de datos, como tablas, vistas, procedimientos almacenados, funciones y esquemas. Los permisos se asignan a usuarios, grupos o roles, y determinan qué acciones pueden realizar sobre los objetos de la base de datos.
+
+Tipos de permisos:
+
+-ALTER: Permite modificar objetos, como tablas, vistas y procedimientos almacenados.
+
+-CONTROL: Permite controlar objetos, como asignar permisos a otros usuarios o grupos.
+
+-DELETE: Permite eliminar filas de una tabla o eliminar objetos.
+
+-EXECUTE: Permite ejecutar procedimientos almacenados y funciones.
+
+-INSERT: Permite insertar filas en una tabla.
+
+-REFERENCES: Permite establecer relaciones entre objetos, como foreign keys.
+
+-SELECT: Permite leer datos de una tabla o vista.
+
+-TAKE OWNERSHIP: Permite tomar la propiedad de un objeto.
+
+-UPDATE: Permite actualizar filas en una tabla.
+
+-VIEW CHANGE TRACKING: Permite seguir los cambios en una vista.
+
+-VIEW DEFINITION: Permite ver la definición de un objeto.
+
+![poj2](https://github.com/user-attachments/assets/1d6f98a5-5837-4f60-9786-ca072cf2e9ca)
+Se crean usuarios para otorgar permisos a nivel de usuario. Al usuario ReadOnlyUser se le otorga el permiso para realizar el comando de "Select On" lo cual significa que puede leer la tabla producto.
+En cuanto a AdminUser se ejecuta la sentencia de db_owner, lo cual le da al permiso de administrador.
+
+![poj3](https://github.com/user-attachments/assets/394113ea-ea69-4d97-8103-afdc4e3ab28d)
+Se crea el procedimiento Insertar producto y se le da permiso de ejecutarlo al usuario ReadOnlyUser
+
+![poj4](https://github.com/user-attachments/assets/764e1b51-e238-4b41-93d6-005ef4de2152)
+Se agregan 2 items a la tabla producto, uno mediante un insert comun por parte del administrador y otro medainte la ejecucion del procedimiento.
+
+![poj5](https://github.com/user-attachments/assets/c5508790-bc87-4c62-9e1a-916764d368ef)
+Se crrean nuevos usuarios pero esta vez para otorgar permisos a nivel de roles del DBMS. Para eso se deben crear roles y designarselos a los usuarios, lo cual se ve tras la creacion del Rol 'RolLectura'.
+
+![poj6](https://github.com/user-attachments/assets/c79a6dbb-6875-4fa7-8f3d-c037e95a3eae)
+Se utiliza grant para especificar que el rol de 'RolLectura' puede ejecutar 'Select on producto'
+El comando sp_addrolemember se utiliza para otorgar el rol 'RolLectura' al Usuario3.
+
+![poj7](https://github.com/user-attachments/assets/526d114a-26de-4c42-8323-4434feb4d5ba)
+Ambos usuarios ejecutan la sentencia de 'Select * from producto'. Como solo Usuario 3, tiene permiso es el unico que podra leer la lista de productos.
+
+![poj1](https://github.com/user-attachments/assets/1b768f8a-f170-413f-9dd5-7a494eda08fb)
+En el caso de Usuairo 4, como no tiene permiso para ajecutar la sentencia, ocuure el error de 'permiso no permitido'
+
 Tema Indices Columnares:
 ![image](https://github.com/user-attachments/assets/f405c525-1f86-44b0-9f48-e176538f05e4)
 En un indice tradicional, la Base de datos lee la primera fila y lee nombre departamento y salario y lo guarda en la memoria cache, luego lo repite para la siguiente fila
