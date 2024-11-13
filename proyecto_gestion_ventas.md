@@ -1,4 +1,4 @@
-# Proyecto de Estudio!
+![image](https://github.com/user-attachments/assets/9e23d52e-6ab3-4951-8c33-4e7cdb3baee3)# Proyecto de Estudio!
     
 **Estructura del documento principal:**
 
@@ -170,9 +170,15 @@ Ventajas del uso de procedimientos almacenados:
 -Reducción del Tráfico de Red:
 Al ejecutar la lógica en el servidor, se minimiza la cantidad de datos que necesitan ser enviados entre el cliente y el servidor.
 
+EJEMPLO DE USO DE PROCEDIMIENTOS ALMACENADOS PARA INSERTAR PRODUCTOS NUEVOS:
+![agregar](https://github.com/user-attachments/assets/76ec6bd9-430e-4a5e-931a-96e3f317cb6b)
+
 Ventajas del uso de funciones almacenadas:
 -Cálculos simplificados: Facilitan realizar cálculos complejos y devolver resultados en una sola llamada, simplificando las llamadas.
 -Rendimiento: Se compilan en el servidor, por lo que el tiempo de ejecución mejora notablemente. 
+
+EJEMPLO DE USO DE FUNCIONES ALMACENADAS PARA CALCULAR EDAD:
+![funcion](https://github.com/user-attachments/assets/0853db13-e31f-45ab-9437-6626e5ca6fe0)
 
 Conclusion Procedimientos y funciones almacenadas:
 Para sacar el máxima provecho, la correcta integración de un sistema que use ambos, sería utilizar procedimientos almacenados para comunicarse y enviar datos a la aplicación; mientras que las funciones se usan para procesar datos internamente dentro del procedimiento almacenado.
