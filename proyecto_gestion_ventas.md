@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/9e23d52e-6ab3-4951-8c33-4e7cdb3baee3)# Proyecto de Estudio!
+# Proyecto de Estudio!
     
 **Estructura del documento principal:**
 
