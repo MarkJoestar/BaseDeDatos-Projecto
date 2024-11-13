@@ -135,6 +135,10 @@ Ambos usuarios ejecutan la sentencia de 'Select * from producto'. Como solo Usua
 
 En el caso de Usuairo 4, como no tiene permiso para ajecutar la sentencia, ocuure el error de 'permiso no permitido'
 
+CONLCUSION:
+
+Los permisos SQL son fundamentales para controlar y gestionar el acceso a recursos y datos en un servidor de bases de datos. Es útil utilizarlos en situaciones que requieren seguridad, control de acceso, optimización de recursos, cumplimiento con regulaciones y auditoría.
+
 Tema Indices Columnares:
 ![image](https://github.com/user-attachments/assets/f405c525-1f86-44b0-9f48-e176538f05e4)
 En un indice tradicional, la Base de datos lee la primera fila y lee nombre departamento y salario y lo guarda en la memoria cache, luego lo repite para la siguiente fila
