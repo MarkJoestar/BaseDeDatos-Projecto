@@ -160,6 +160,19 @@ Conclusion Indices Columnares:
 Se puede observar que si bien el tiempo total es menor en la tabla que no tiene indices columnares la carga de procesamiento fue casi la misma en ambas consultas, esto pude indicar que los indices columnares mejoran el tiempo de ejecucion gracias a el acceso mas rapido a las columnas de las tablas que a travez de un procesamiento mas eficiente ya que los indices columnares mejoran la eficiencia al permitir extraer y guardar en la ram solo columnas especificas. Ademas, Si el volumen de datos aumenta, es probable que la diferencia de rendimiento entre la tabla con y sin índice columnar se amplíe. 
 
 
+Tema Procedimientos y funciones almacenadas:
+Un procedimiento almacenado es un conjunto de instrucciones SQL que se almacena asociado a una base de datos. El cual se crea con la sentencia CREATE PROCEDURE y se invoca con la sentencia EXECUTE. Un procedimiento puede tener cero o muchos parámetros de entrada y cero o muchos parámetros de salida. Las funciones, en cambio, son un conjunto de instrucciones que siempre retornan un valor.
+
+Ventajas del uso de procedimientos almacenados:
+-Rendimiento: Los procedimientos almacenados se compilan una sola vez y son almacenados en la base de datos, por lo que se reduce la cantidad de necesarias de compilación cada vez que se realiza una consulta.
+-Reutilización del código: Enfoque más modular y eficiente
+-Seguridad: Permiten establecer permisos específicos y restringir el acceso a las tablas, lo que protege de forma más eficiente los datos.
+-Reducción del Tráfico de Red:
+Al ejecutar la lógica en el servidor, se minimiza la cantidad de datos que necesitan ser enviados entre el cliente y el servidor.
+
+Conclusion Procedimientos y funciones almacenadas:
+Para sacar el máxima provecho, la correcta integración de un sistema que use ambos, sería utilizar procedimientos almacenados para comunicarse y enviar datos a la aplicación; mientras que las funciones se usan para procesar datos internamente dentro del procedimiento almacenado.
+
 
 ### Diagrama relacional
 ![diagrama_relacional](https://github.com/MarkJoestar/BaseDeDatos-Projecto/blob/main/doc/modelo_relacional.jpeg)
