@@ -1,6 +1,3 @@
-# Proyecto de Estudio!
-    
-**Estructura del documento principal:**
 
 # PRESENTACIÓN Proyecto Gestión Ventas
 
