@@ -161,7 +161,11 @@ Ventajas del uso de funciones almacenadas:
 EJEMPLO DE USO DE FUNCIONES ALMACENADAS PARA CALCULAR EDAD:
 ![funcion](https://github.com/user-attachments/assets/0853db13-e31f-45ab-9437-6626e5ca6fe0)
 
+
+
 Conclusion Procedimientos y funciones almacenadas:
+Para consultas simples y únicas, las operaciones directas pueden ser más prácticas. Para consultas complejas o con operaciones repetitivas, el uso de procedimientos y funciones almacenadas es más eficiente.
+Esto debido a que puede llevar más tiempo que escribir consultas directas pero se compila y optimizan una sola vez, en llamadas posteriores tendrá una ejecución más rápida.
 Para sacar el máxima provecho, la correcta integración de un sistema que use ambos, sería utilizar procedimientos almacenados para comunicarse y enviar datos a la aplicación; mientras que las funciones se usan para procesar datos internamente dentro del procedimiento almacenado.
 
 
