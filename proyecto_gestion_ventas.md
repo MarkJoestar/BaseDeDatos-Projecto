@@ -141,24 +141,24 @@ Los permisos SQL son fundamentales para controlar y gestionar el acceso a recurs
 
 
 
-Tema Procedimientos y funciones almacenadas:
+###Tema Procedimientos y funciones almacenadas:
 Un procedimiento almacenado es un conjunto de instrucciones SQL que se almacena asociado a una base de datos. El cual se crea con la sentencia CREATE PROCEDURE y se invoca con la sentencia EXECUTE. Un procedimiento puede tener cero o muchos parámetros de entrada y cero o muchos parámetros de salida. Las funciones, en cambio, son un conjunto de instrucciones que siempre retornan un valor, estas pueden ser utilizadas en expresiones y consultas.
 
-Ventajas del uso de procedimientos almacenados:
+###Ventajas del uso de procedimientos almacenados:
 -Rendimiento: Los procedimientos almacenados se compilan una sola vez y son almacenados en la base de datos, por lo que se reduce la cantidad de necesarias de compilación cada vez que se realiza una consulta.
 -Reutilización del código: Enfoque más modular y eficiente
 -Seguridad: Permiten establecer permisos específicos y restringir el acceso a las tablas, lo que protege de forma más eficiente los datos.
 -Reducción del Tráfico de Red:
 Al ejecutar la lógica en el servidor, se minimiza la cantidad de datos que necesitan ser enviados entre el cliente y el servidor.
 
-EJEMPLO DE USO DE PROCEDIMIENTOS ALMACENADOS PARA INSERTAR PRODUCTOS NUEVOS:
+###EJEMPLO DE USO DE PROCEDIMIENTOS ALMACENADOS PARA INSERTAR PRODUCTOS NUEVOS:
 ![agregar](https://github.com/user-attachments/assets/76ec6bd9-430e-4a5e-931a-96e3f317cb6b)
 
-Ventajas del uso de funciones almacenadas:
+###Ventajas del uso de funciones almacenadas:
 -Cálculos simplificados: Facilitan realizar cálculos complejos y devolver resultados en una sola llamada, simplificando las llamadas.
 -Rendimiento: Se compilan en el servidor, por lo que el tiempo de ejecución mejora notablemente. 
 
-EJEMPLO DE USO DE FUNCIONES ALMACENADAS PARA CALCULAR EDAD:
+###EJEMPLO DE USO DE FUNCIONES ALMACENADAS PARA CALCULAR EDAD:
 ![funcion](https://github.com/user-attachments/assets/0853db13-e31f-45ab-9437-6626e5ca6fe0)
 
 
