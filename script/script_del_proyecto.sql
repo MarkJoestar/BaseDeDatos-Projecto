@@ -1,5 +1,6 @@
--- SCRIPT TEMA "nombre del tema"
+
 -- DEFINNICIÓN DEL MODELO DE DATOS
+-- SISTEMA DE COMPRAS/VENTAS
 
 CREATE DATABASE SistemaCompras_Proyecto_BdD
 GO
