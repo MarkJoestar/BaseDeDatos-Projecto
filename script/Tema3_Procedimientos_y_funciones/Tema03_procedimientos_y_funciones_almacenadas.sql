@@ -74,37 +74,53 @@ EXECUTE AgregarCantidadProducto 4, 5
 EXECUTE AgregarCantidadProducto 8, 15
 
 --FUNCION QUE CALCULA EDAD
-    
-DELIMITER ||
-CREATE FUNCTION calcularEdad (fechnac DATE)
+
+CREATE FUNCTION calcularEdad (@fechnac date)
 RETURNS INT
+AS
+
 BEGIN
-	DECLARE edad INT;
-	SET edad = (YEAR(CURRENT_DATE) - YEAR(fechnac));
-	RETURN edad;
-END;
+	DECLARE @edad INT
+	SELECT @edad = DATEDIFF(YEAR, @fechnac, getdate()) 
+	RETURN @edad
+END
+
 
 --FUNCION PRODUCTO QUE MUESTRE UN PRODUCTO MAYOR A TAL PRECIO
-DELIMITER ||
-CREATE FUNCTION mayorQue (num1 INTEGER, num2 INTEGER)
-    RETURNS INT
-    BEGIN 
-    IF num1>num2 THEN
-    RETURN num1;
+
+CREATE FUNCTION CompararNumeros (@Numero1 INT,@Numero2 INT)
+RETURNS NVARCHAR(100)
+AS
+BEGIN
+    DECLARE @Resultado NVARCHAR(100);
+
+    IF @Numero1 > @Numero2
+        SET @Resultado = CONCAT(@Numero1, ' es mayor que ', @Numero2);
+    ELSE IF @Numero1 < @Numero2
+        SET @Resultado = CONCAT(@Numero2, ' es mayor que ', @Numero1);
     ELSE
-    RETURN num2;
-    END IF;
+        SET @Resultado = 'Ambos números son iguales';
+
+    RETURN @Resultado;
 END;
+	
 --FUNCION QUE MUESTRE DESCUENTO 15%
 
-DELIMITER ||
-CREATE FUNCTION DESCUENTO15 (Precio DECIMAL)
-RETURNS DECIMAL
+CREATE FUNCTION CalcularDescuento (
+    @Precio DECIMAL(10, 2)
+)
+RETURNS DECIMAL(10, 2)
+AS
 BEGIN
-	DECLARE descuento DECIMAL(10,2);
-	SET descuento = Precio * 0.85;
-	RETURN descuento;
+    DECLARE @Descuento DECIMAL(10, 2);
+    
+    -- Calcula el descuento (15% del precio)
+    SET @Descuento = @Precio * 0.15;
+    
+    -- Devuelve el precio después del descuento
+    RETURN @Precio - @Descuento;
 END;
+
 
 --Comparar la eficiencia de las operaciones directas versus el uso de procedimientos y funciones.
 Para consultas simples y únicas, las operaciones directas pueden ser más prácticas. Para consultas complejas 
