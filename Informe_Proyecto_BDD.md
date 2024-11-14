@@ -136,7 +136,8 @@ Al ejecutar la lógica en el servidor, se minimiza la cantidad de datos que nece
 + Rendimiento: Se compilan en el servidor, por lo que el tiempo de ejecución mejora notablemente. 
 
 ### EJEMPLO DE USO DE FUNCIONES ALMACENADAS PARA CALCULAR EDAD:
-![funcion](https://github.com/user-attachments/assets/0853db13-e31f-45ab-9437-6626e5ca6fe0)
+![image](https://github.com/user-attachments/assets/ceebf2aa-3a37-4e55-aea3-4b3933f8d644)
+
 
 ### OPERACIÓN DIRECTA
 ![rendimiento](https://github.com/user-attachments/assets/8d96130b-5d21-48a7-a392-9e0728e81ffa)
