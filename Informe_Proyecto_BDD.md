@@ -226,7 +226,6 @@ Script de tablas
 
 Un índice en SQL Server mejora la velocidad de recuperación de datos en las consultas, funcionando como un "índice" en un libro para localizar información rápidamente. Los índices son estructuras de datos que permiten acceder a los datos de forma más rápida al ordenar físicamente (índices agrupados) o mediante referencias organizadas (índices no agrupados).
 
-#### Tipos de Índices
 
 Los índices más comunes son:
 
@@ -235,7 +234,7 @@ Los índices más comunes son:
 
 ### Mejora del Rendimiento con Índices
 
-Para mejorar el rendimiento con índices, se deben identificar las consultas que involucran operaciones frecuentes de búsqueda y filtrado (`WHERE`, `JOIN`); y que *ordenan o agrupan* datos frecuentemente (`ORDER BY`, `GROUP BY`). También, se debe priorizar la selección de una porción de registros en lugar de hacer un escaneo completo de la tabla. 
+Para mejorar el rendimiento de una consulta usando índices, se deben identificar las consultas que involucran operaciones de búsqueda y filtrado (`WHERE`, `JOIN`); y que *ordenan o agrupan* datos frecuentemente (`ORDER BY`, `GROUP BY`). También, se debe priorizar la selección de una porción de registros en lugar de hacer un escaneo completo de la tabla. 
 
 SQL Server proporciona herramientas como el **Execution Plan** para revisar cómo se ejecuta una consulta y ver qué índice se utilizó para llevarla a cabo.
 
@@ -249,7 +248,7 @@ A continuación, aplicaremos los índices a tablas relevantes de nuestra base de
 
 ### Ejemplo en la Tabla `Ventas`
 
-La tabla `Ventas` es una tabla donde seguro se harán muchas consultas de búsqueda. Estas búsquedas podrían realizarse por columnas como `FechaRegistro` o `MontoPago`. Un índice en esos campos va a acelerar estas búsquedas.
+La tabla `Ventas` es una tabla donde se harán muchas consultas de búsqueda. Estas búsquedas podrían realizarse por columnas como `FechaRegistro` o `MontoPago`. Un índice en esos campos va a mejorar el rendimientode  estas búsquedas.
 
 
 ### TAREAS SOLICITADAS
@@ -264,7 +263,7 @@ La tabla `Ventas` es una tabla donde seguro se harán muchas consultas de búsqu
 
 2. **Realizar una búsqueda por periodo y registrar el plan de ejecución utilizado por el motor y los tiempos de respuesta.**
 
-se ejecuta una consulta que busque por un período de fechas, por ejemplo, un periodo de un año:
+se ejecuta una consulta que busque por un período de fechas, en este caso, un periodo de un año:
 
 ![RealizarConsulta](https://github.com/user-attachments/assets/6ef38235-3526-4731-baf6-f50d201e7ff5)
 los comandos `SET STATISTICS TIME ON` y SET `STATISTICS IO ON`
