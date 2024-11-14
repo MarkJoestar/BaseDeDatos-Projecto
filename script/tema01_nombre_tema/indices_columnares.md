@@ -31,15 +31,25 @@ Creamos un indice columnar en la nueva tabla
 
 Vamos a utilizar el siguiente stript para realizar una comparacion entre la tabla ventanuevo original y ventanuevo con indices columnares implementados 
 
-![image](https://github.com/user-attachments/assets/72ced864-4b6e-409f-b9b9-b9cc54f03ac4)
-
+![image](https://github.com/user-attachments/assets/97671477-49b0-48a6-a97f-5b2429dc871f)
 
 Resultados:
 
-![image](https://github.com/user-attachments/assets/5e6186e2-421f-4f5d-b8a3-a189b2b515f2)
+![image](https://github.com/user-attachments/assets/7315c922-3a9b-4938-af2e-782152634b14)
+
+
+![image](https://github.com/user-attachments/assets/13d94356-2b00-422b-afab-c02178cf0038)
+
+
+Podemos ver que en la primera consulta (la cual no tiene un indice columnar) la mayor parte del tiempo de ejecucion de destino a:
+Clustered Index Scan (Costo: 96%)
+Se hace un scaneo completo de las filas de venta nuevo y se scanea un indice agrupado donde id_usuario = 1, es donde se destina la mayor parte del tiempo de ejecucion porque se esta escanenado toda la tabla en busca de las filas que cumplen con el filtro.
+
+En el segundo plan de ejecucion, La consulta comienza con un escaneo sobre el índice columnar no agrupado en la tabla VentaNuevo1 donde se accede a la columna monto total, En este paso, el motor de SQL Server está preparando los datos de MontoTotal que serán utilizados en el cálculo de la suma, pero aún no ha aplicado el filtro id_usuario = 1 para esto el motor de SQL Server realiza un Key Lookup en el índice agrupado de la tabla para buscar solo los registros que cumplen con la condición, entonces se utiliza el operador Nested Loops para combinar los datos obtenidos en el Columnstore Index Scan y el Key Lookup.
+
 
 Conclusion:
-Se puede observar que si bien el tiempo total es menor en la tabla que no tiene indices columnares la carga de procesamiento fue casi la misma en ambas consultas, esto pude indicar que los indices columnares mejoran el tiempo de ejecucion gracias a el acceso mas rapido a las columnas de las tablas que a travez de un procesamiento mas eficiente ya que los indices columnares mejoran la eficiencia al permitir extraer y guardar en la ram solo columnas especificas. Ademas, Si el volumen de datos aumenta, es probable que la diferencia de rendimiento entre la tabla con y sin índice columnar se amplíe. 
+Se puede observar que si bien el tiempo total es menor en la tabla que no tiene indices columnares la carga de procesamiento fue muy superior en , esto pude indicar que los indices columnares mejoran el tiempo de ejecucion gracias a el acceso mas rapido a las columnas de las tablas que a travez de un procesamiento mas eficiente ya que los indices columnares mejoran la eficiencia al permitir extraer y guardar en la ram solo columnas especificas. Ademas, Si el volumen de datos aumenta, es probable que la diferencia de rendimiento entre la tabla con y sin índice columnar se amplíe. 
 
 
 
