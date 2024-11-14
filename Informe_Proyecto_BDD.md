@@ -34,23 +34,24 @@ El trabajo fue realizo para comprender la organización de los datos en un siste
 
 ## CAPITULO II: MARCO CONCEPTUAL O REFERENCIAL
 
-El sistema se basará en un software que cubre necesidades básicas de un sistemade ventas que está en constante movimiento, donde se debe actualizar los precios y el stock, así como registrar productos nuevos para que estos mismos puedan ser vendidos. También se piensa en el sistema de ventas donde se recibe el importe, el cuál puede ser abonado usando diferentes medios de pagos. Se registran los datos del cliente para la factura final. Los usuarios capaces de utilizar el sistema tienen distintos roles como puede ser un vendedor o un administrador.
+El sistema se basará en un software que cubre necesidades básicas de un sistema de ventas que está en constante movimiento, donde se debe actualizar los precios y el stock, así como registrar productos nuevos para que estos mismos puedan ser vendidos. También se piensa en el sistema de ventas donde se recibe el importe, el cuál puede ser abonado usando diferentes medios de pagos. Se registran los datos del cliente para la factura final. Los usuarios capaces de utilizar el sistema tienen distintos roles como puede ser un vendedor o un administrador.
 Se usaran las formas normalizadas a la hora de diseñar bases de datos y convenciones de nomenclaturas que seran especificadas mas adelante en el trabajo.
 
-...
 
-## CAPÍTULO III: METODOLOGÍA SEGUIDA 
+## CAPÍTULO III: METODOLOGÍA SEGUIDA
+En este capítulo se presenta el plan de trabajo, las acciones desarrolladas para completar cada etapa del proyecto, las herramientas utilizadas, y las dificultades encontradas a lo largo del proceso, proporcionando una visión integral de cómo se llevó a cabo este trabajo.
 
-En este capítulo se presenta el plan seguido o las acciones llevadas a cabo para realizar el trabajo, 
-las dificultades encontradas, y cualquier otra información que proporcione la idea de cómo se 
-realizó el trabajo.
+a) Cómo se realizó el Trabajo Práctico
+Para llevar a cabo este trabajo, se siguió una metodología estructurada en varias etapas. En primer lugar, se realizó un análisis de los requerimientos del sistema, que incluyó identificar las necesidades de la base de datos y definir los datos clave para el funcionamiento del sistema. A continuación, se diseñó el modelo de datos, aplicando las convenciones establecidas en el curso. Este diseño incluyó la creación de entidades, relaciones y atributos necesarios para el modelo relacional de la base de datos, y se realizó una primera versión del esquema conceptual.
 
+La siguiente fase fue la normalización de la base de datos para asegurar que cumpliera con las reglas de las formas normales y reducir la redundancia de datos. Durante esta etapa, se aplicaron los conceptos de normalización y se ajustó el modelo para optimizar la estructura de las tablas, minimizando inconsistencias y mejorando la eficiencia de las consultas. Finalmente, se implementaron índices y optimizaciones de consultas, con el fin de mejorar el rendimiento y asegurar que el sistema pudiera manejar consultas complejas de forma eficaz.
 
- **a) Cómo se realizó el Trabajo Práctico**
+b) Herramientas (Instrumentos y procedimientos)
+Para el desarrollo de este modelo relacional se utilizó ERDPlus, una herramienta de diseño que permite construir diagramas entidad-relación (ER) de manera visual y amigable. ERDPlus facilitó la creación del esquema conceptual y el modelo relacional, permitiendo seguir las convenciones establecidas por la cátedra en el primer parcial. Esta herramienta fue clave para asegurar que el diseño del modelo fuera consistente con los principios de diseño relacional y las reglas de normalización de bases de datos.
 
+Una vez finalizado el diseño del modelo, se utilizó SQL Server para implementar y gestionar la base de datos. SQL Server permitió aplicar y probar el modelo relacional en un entorno de gestión de datos, proporcionando las herramientas necesarias para crear tablas, índices y optimizar consultas. Además, SQL Server fue fundamental para realizar pruebas de rendimiento y asegurar que el sistema respondiera de manera óptima a las consultas y necesidades del proyecto. Esta plataforma también facilitó la asignación de permisos de usuario, contribuyendo a un control de acceso seguro y bien definido.
 
- **b) Herramientas (Instrumentos y procedimientos)**
-El modelo relacional se realizo usando ERDPLUS siguiendo las convenciones de la catedra en el primer parcial y siguiendo las reglas relacionales de normalizacion de bases de datos. 
+Adicionalmente, se emplearon técnicas de normalización para optimizar el modelo, garantizando que las tablas y relaciones cumplieran con las primeras tres formas normales. El proceso de normalización fue seguido rigurosamente para minimizar la redundancia de datos y asegurar una estructura de base de datos coherente, alineada con los principios de diseño eficiente.
 
 
 ## CAPÍTULO IV: DESARROLLO DEL TEMA / PRESENTACIÓN DE RESULTADOS 
@@ -110,7 +111,7 @@ Ambos usuarios ejecutan la sentencia de 'Select * from producto'. Como solo Usua
 
 ![poj1](https://github.com/user-attachments/assets/1b768f8a-f170-413f-9dd5-7a494eda08fb)
 
-En el caso de Usuairo 4, como no tiene permiso para ajecutar la sentencia, ocuure el error de 'permiso no permitido'
+En el caso de Usuario 4, como no tiene permiso para ajecutar la sentencia, ocurre el error de 'permiso no permitido'
 
 CONLCUSION:
 
@@ -151,7 +152,7 @@ Esto debido a que puede llevar más tiempo que escribir consultas directas pero 
 Para sacar el máxima provecho, la correcta integración de un sistema que use ambos, sería utilizar procedimientos almacenados para comunicarse y enviar datos a la aplicación; mientras que las funciones se usan para procesar datos internamente dentro del procedimiento almacenado.
 
 
-Tema Indices Columnares:
+## Tema Indices Columnares:
 ![image](https://github.com/user-attachments/assets/f405c525-1f86-44b0-9f48-e176538f05e4)
 En un indice tradicional, la Base de datos lee la primera fila y lee nombre departamento y salario y lo guarda en la memoria cache, luego lo repite para la siguiente fila
 si la tabla tiene 60 datos tiene que leer fila por fila.
@@ -343,7 +344,9 @@ La estructura del índice agrupado ordena físicamente los datos según FechaReg
 
 ## CAPÍTULO V: CONCLUSIONES
 
-------
+La implementación de procedimientos y funciones almacenadas, índices columnares, optimización de consultas y gestión de permisos SQL en un sistema de bases de datos contribuye de manera significativa a mejorar su eficiencia, seguridad y rendimiento general. Los procedimientos y funciones almacenadas permiten optimizar consultas complejas y repetitivas, mejorando la velocidad de ejecución a través de su compilación y optimización iniciales. Los índices columnares, por su parte, reducen los tiempos de respuesta al acceder selectivamente a columnas específicas, lo cual resulta especialmente beneficioso a medida que el volumen de datos crece. Además, la utilización de índices agrupados en columnas claves como FechaRegistro mejora el tiempo de respuesta al ordenar los datos físicamente, optimizando aún más las consultas. Finalmente, el control de acceso mediante permisos SQL asegura la protección y administración de los recursos, facilitando un entorno de trabajo seguro y regulado. En conjunto, estos elementos fortalecen tanto el rendimiento como la seguridad del sistema, creando una base de datos más robusta y eficaz.
+
+
 
 
 
