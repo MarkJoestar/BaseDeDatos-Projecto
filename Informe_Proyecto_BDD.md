@@ -39,7 +39,7 @@ Se usaran las formas normalizadas a la hora de diseñar bases de datos y convenc
 
 
 ## CAPÍTULO III: METODOLOGÍA SEGUIDA
-En este capítulo se presenta el plan de trabajo, las acciones desarrolladas para completar cada etapa del proyecto, las herramientas utilizadas, y las dificultades encontradas a lo largo del proceso, proporcionando una visión integral de cómo se llevó a cabo este trabajo.
+En este capítulo se presenta el plan de trabajo, las acciones desarrolladas para completar cada etapa del proyecto, las herramientas utilizadas, y las dificultades encontradas a lo largo del proceso.
 
 a) Cómo se realizó el Trabajo Práctico
 Para llevar a cabo este trabajo, se siguió una metodología estructurada en varias etapas. En primer lugar, se realizó un análisis de los requerimientos del sistema, que incluyó identificar las necesidades de la base de datos y definir los datos clave para el funcionamiento del sistema. A continuación, se diseñó el modelo de datos, aplicando las convenciones establecidas en el curso. Este diseño incluyó la creación de entidades, relaciones y atributos necesarios para el modelo relacional de la base de datos, y se realizó una primera versión del esquema conceptual.
@@ -351,7 +351,7 @@ La implementación de procedimientos y funciones almacenadas, índices columnare
 
 ## BIBLIOGRAFÍA DE CONSULTA
 
- 1. Soledad Navarro, 01/05/2024, Cómo pagan los argentinos: ¿Prefieren el efectivo, las tarjetas de crédito o débito, o las billeteras virtuales?, Clarín
 1. Victor Cardenas, 22/02/2022, Indices Columnares y Tablas en memoria, Visoalgt
+2. Material de la Asignatura proporcionado en el Aula virtual de la misma.
 
 
