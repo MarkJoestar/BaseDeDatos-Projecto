@@ -210,11 +210,136 @@ Se puede observar que el tiempo total es menor en la tabla que tiene indices col
 
 Acceso al documento [PDF](doc/diccionario_de_datos_bdd.pdf) del diccionario de datos.
 
-### Desarrollo TEMA 1 "----"
+
 
 Script de tablas
 
 > Acceder a la siguiente carpeta para la descripción completa del tema [scripts-> tema_1](script/tema01_nombre_tema)
+
+
+
+## TEMA: Optimización de Consultas a través de Índices
+
+### Conceptos Básicos sobre Índices
+
+Un índice en SQL Server mejora la velocidad de recuperación de datos en las consultas, funcionando como un "índice" en un libro para localizar información rápidamente. Los índices son estructuras de datos que permiten acceder a los datos de forma más rápida al ordenar físicamente (índices agrupados) o mediante referencias organizadas (índices no agrupados).
+
+#### Tipos de Índices
+
+Los índices más comunes son:
+
+- **Índice Clustered (agrupado)**: Ordena físicamente los datos en la tabla. Solo puede haber uno por tabla, ya que define el orden físico de los datos.
+- **Índice Non-Clustered (no agrupado)**: Crea una estructura separada que apunta a las filas de datos. Puede haber múltiples índices non-clustered en una tabla.
+
+### Mejora del Rendimiento con Índices
+
+Para mejorar el rendimiento con índices, se deben identificar las consultas que involucran operaciones frecuentes de búsqueda y filtrado (`WHERE`, `JOIN`); y que *ordenan o agrupan* datos frecuentemente (`ORDER BY`, `GROUP BY`). También, se debe priorizar la selección de una porción de registros en lugar de hacer un escaneo completo de la tabla. 
+
+SQL Server proporciona herramientas como el **Execution Plan** para revisar cómo se ejecuta una consulta y ver qué índice se utilizó para llevarla a cabo.
+
+**En este informe, solo se trabajó con los Índices Agrupados (Clustered).**
+
+---
+
+### Aplicación en SQL Server
+
+A continuación, aplicaremos los índices a tablas relevantes de nuestra base de datos:
+
+### Ejemplo en la Tabla `Ventas`
+
+La tabla `Ventas` es una tabla donde seguro se harán muchas consultas de búsqueda. Estas búsquedas podrían realizarse por columnas como `FechaRegistro` o `MontoPago`. Un índice en esos campos va a acelerar estas búsquedas.
+
+
+### TAREAS SOLICITADAS
+
+1. **Realizar una carga masiva de por lo menos un millón de registros sobre alguna tabla que contenga un campo fecha (sin índice).** Hacerlo con un script para poder automatizarlo.
+
+   ![CargaDeRegistros](https://github.com/user-attachments/assets/2c35cce5-0afa-47ad-9991-be8118890ea8)
+
+   Se creo una tabla nueva en base a la tabla de Ventas.
+   Luego, cargamos un millon de registros en ella con un script.
+
+
+2. **Realizar una búsqueda por periodo y registrar el plan de ejecución utilizado por el motor y los tiempos de respuesta.**
+
+se ejecuta una consulta que busque por un período de fechas, por ejemplo, un periodo de un año:
+
+![RealizarConsulta](https://github.com/user-attachments/assets/6ef38235-3526-4731-baf6-f50d201e7ff5)
+los comandos `SET STATISTICS TIME ON` y SET `STATISTICS IO ON`
+permiten medir y analizar el rendimiento de las consultas, en términos de tiempo y de operaciones de entrada/salida.
+
+
+-Obtuvimos los siguientes resultados al realizar la consulta sin ningun indice:
+
+![executionTime](https://github.com/user-attachments/assets/cf105280-2c16-4d96-bf10-ffcee4f669b6) 
+Lecturas lógicas: 4951
+
+Se puede ver que la consulta sin ningún índice mostró un tiempo de ejecución relativamente alto y número elevado de lecturas lógicas. Esto se debe a que SQL Server tuvo que realizar una búsqueda completa en la tabla, revisando cada fila para cumplir con los criterios de búsqueda.
+
+En la siguiente imagen se puede ver que el programa no usó ningún índice para realizar la consulta.
+![WhatsApp Image 2024-11-10 at 17 58 08_34ba7878](https://github.com/user-attachments/assets/6407e099-f3d1-4c3a-84c9-b2ed6a043084)
+
+
+
+3. **Definir un índice agrupado sobre la columna fecha y repetir la consulta anterior. Registrar el plan de ejecución utilizado por el motor y los tiempos de respuesta.**
+   
+
+Declaramos el Índice Agrupado (Clustered) en el Campo  de FechaRegistro para mejorar el rendimiento de la consulta:
+
+![DefinicionDeIndice_1columna](https://github.com/user-attachments/assets/4b404ac2-c484-437f-bf49-8a9b05d6a03c)
+
+
+Se vuelve a ejecutar la consulta de búsqueda por un periodo de un año. y se obtiene estos resultados:
+
+![medicion_1Columna](https://github.com/user-attachments/assets/cbe22355-effc-4d58-850c-186a3d4d2a8e)
+Lecturas lógicas: 501
+
+Al aplicar un índice agrupado en la columna FechaRegistro, el rendimiento mejoró de forma notable. La reducción en las lecturas lógicas (de 4951 a 501) muestra que SQL Server pudo localizar de manera más eficiente los registros dentro del rango de fechas especificado, sin necesidad de escanear toda la tabla.
+
+
+En la siguiente imagen se puede ver el uso del índice agrupado para efectuar la consulta:
+
+![WhatsApp Image 2024-11-10 at 18 09 42_bd62bedd](https://github.com/user-attachments/assets/0b5e9df8-c227-4d67-91e9-bfa87637ce47)
+
+
+
+3. **Definir otro índice agrupado sobre la columna fecha pero que además incluya las columnas seleccionadas y repetir la consulta anterior. Registrar el plan de ejecución utilizado por el motor y los tiempos de respuesta.**
+
+
+Primero, eliminamos el índice anterior para evaluar el nuevo índice agrupado.
+
+![EliminacionIndice_1columna](https://github.com/user-attachments/assets/bc20b04e-11d1-42e1-ae0c-8e857af91ed7)
+
+
+Ahora creamos de un Índice Agrupado sobre la misma columna FechaRegistro, que ahora incluye otras columnas en la consulta para mejorar la optimización en accesos específicos:
+
+![definicionDeIndice_ColumnasExtra](https://github.com/user-attachments/assets/a7fd9bca-daae-4f14-bffc-6046678550dc)
+
+
+Ejecutamos de nuevo la consulta de búsqueda por un periodo de un año, y obtenemos estos resultados:
+
+![medicion_3columnas](https://github.com/user-attachments/assets/0d635c6e-870d-4a90-9a9e-c99131d35a96)
+Lecturas lógicas: 401
+
+Al añadir las columnas MontoPago y MontoTotal al índice agrupado, el rendimiento mostró una pequeña mejora en el tiempo de ejecución y las lecturas lógicas. Lo que hizo la inclusión de estas columnas es que SQL Server pudo satisfacer la consulta utilizando únicamente el índice, ya que se evita hacer búsquedas adicionales en la tabla para recuperar estos datos.
+
+
+En la siguiente imagen se puede ver el uso del índice agrupado con las columnas agregadas para efectuar la consulta:
+
+![WhatsApp Image 2024-11-12 at 19 56 26_09ae8dd2](https://github.com/user-attachments/assets/98369684-0496-4ca9-aff5-5ce9d713e033)
+
+
+4. **Expresar las conclusiones en base a las pruebas realizadas.**
+
+
+En conclusión, el uso de índices agrupados en la columna FechaRegistro, y en particular la inclusión de las columnas necesarias en el índice, optimizó significativamente las consultas en términos de tiempo de respuesta y eficiencia de lecturas.
+
+La estructura del índice agrupado ordena físicamente los datos según FechaRegistro, esto hizo que las búsquedas de rangos sean mucho más eficientes en comparación con una consulta sin índices. Tambien, el incluir las columnas seleccionadas en el índice agrupado evitó que se hagan accesos innecesarios a la tabla, lo que mejoró más el rendimiento de la consulta y redujo las lecturas lógicas.
+
+
+
+
+
 ## CAPÍTULO V: CONCLUSIONES
 
 ------
