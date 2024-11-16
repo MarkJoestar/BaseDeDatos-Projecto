@@ -1,32 +1,63 @@
---Se crea un procedimiento almacenado para insertar nuevos productos.
-CREATE USER Administrador WITH PASSWORD = 'password123';
-CREATE USER Vendedor WITH PASSWORD = 'password456';
+-- PERMISOS A NIVEL DE USUARIOS
+-- Crear el usuario para administrador
+CREATE LOGIN AdminUser WITH PASSWORD = 'ContraseñaSegura1';
+CREATE USER AdminUser FOR LOGIN AdminUser;
 
--- Asignar permisos al usuario administrador
-GRANT ALL ON SistemaCompras_Proyecto_BdD.* TO Administrador;
+-- Crear el usuario para solo lectura
+CREATE LOGIN ReadOnlyUser WITH PASSWORD = 'ContraseñaSegura2';
+CREATE USER ReadOnlyUser FOR LOGIN ReadOnlyUser;
 
--- Asignar permisos al usuario Vendedor
-GRANT SELECT ON SistemaCompras_Proyecto_BdD.Productos TO Vendedor;
-GRANT EXECUTE ON SistemaCompras_Proyecto_BdD./*procedimento*/ TO Vendedor;
+-- Asignar permisos de administrador (db_owner)
+EXEC sp_addrolemember 'db_owner', 'AdminUser';
+-- Asignar permisos de solo lectura en la tabla Producto
+GRANT SELECT ON Producto TO ReadOnlyUser;
 
--- Intentar insertar un producto directamente con ambos usuarios
--- Conectarse como usuarioAdministrador
-USE SistemaCompras_Proyecto_BdD;
 GO
-EXECUTE AS USER = 'Administrador';
-/*Ejecutar procedimiento como administrador*/
-REVERT; /*revert finaliza la sentencia de execute para que no se ejecuten mas comandos como el determinado usuario*/
 
--- Conectarse como Vendedor
-USE tienda;
+IF OBJECT_ID('InsertarProducto', 'P') IS NOT NULL
+    DROP PROCEDURE InsertarProducto;
 GO
-EXECUTE AS USER = 'Vendedor';
-INSERT INTO Productos (Nombre, Precio) VALUES ('Otro Producto', 29.99);
-REVERT;
 
--- Intentar insertar un producto usando el procedimiento almacenado con el usuario lector
-USE tienda;
+-- Crear un procedimiento almacenado de ejemplo para insertar productos
+CREATE PROCEDURE InsertarProducto
+    @Codigo VARCHAR(50),
+    @Nombre VARCHAR(50),
+    @Descripcion VARCHAR(255),
+    @Stock INT,
+    @Precio DECIMAL(10, 2),
+    @Estado INT,
+    @Categoria_id INT
+AS
+BEGIN
+    INSERT INTO Producto (Codigo, Nombre, Descripcion, Stock, Precio, Estado, Categoria_id)
+    VALUES (@Codigo, @Nombre, @Descripcion, @Stock, @Precio, @Estado, @Categoria_id);
+END;
+
+GRANT EXECUTE ON InsertarProducto TO ReadOnlyUser;
+
 GO
-EXECUTE AS USER = 'vendedor';
-/*Ejecutar procedimiento como vendedor*/
-REVERT;
+
+Insert into Categoria (Nombre) values ('ejemplo');
+go 
+
+-- Realizar un INSERT directamente en la tabla como administrador
+INSERT INTO Producto (Codigo, Nombre, Descripcion, Stock, Precio, Estado, Categoria_id)
+VALUES ('P001', 'Producto A', 'Descripción del producto A', 100, 50.75, 1, 1);
+Go
+
+EXEC InsertarProducto 
+    @Codigo = 'P002', 
+    @Nombre = 'Producto B', 
+    @Descripcion = 'Descripción del producto B', 
+    @Stock = 200, 
+    @Precio = 30.99, 
+    @Estado = 1, 
+    @Categoria_id = 1;
+GO
+
+-- Verificar los productos insertados
+SELECT * FROM Producto;
+-- Revocar permiso de SELECT sobre la tabla Producto
+REVOKE SELECT ON Producto TO ReadOnlyUser;
+-- Revocar permiso de ejecución sobre el procedimiento
+REVOKE EXECUTE ON InsertarProducto TO ReadOnlyUser;
