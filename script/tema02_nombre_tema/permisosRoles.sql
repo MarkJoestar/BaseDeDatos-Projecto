@@ -1,32 +1,31 @@
--- Crear los usuarios
-CREATE USER usuario1 WITH PASSWORD = '1234';
-CREATE USER usuario2 WITH PASSWORD = '5678';
+-- PERMISOS A NIVEL DE ROLES DE DBMS
 
--- Crear el rol Lector
-CREATE ROLE Lector;
-GRANT SELECT ON /*precedimiento*/ TO Rol1;
 
--- Asignar el rol al usuario1
-GRANT Rol1 TO usuario1;
+-- Crear el login y usuario para Usuario3 (que tendrá permiso sobre el rol)
+CREATE LOGIN Usuario3 WITH PASSWORD = 'ContraseñaSegura3';
+CREATE USER Usuario3 FOR LOGIN Usuario3;
 
--- Crear el rol Administrador
-CREATE ROLE Administrador;
-GRANT ALL PRIVILEGES ON *.* TO Rol2;
+-- Crear el login y usuario para Usuario4 (que no tendrá permiso sobre el rol)
+CREATE LOGIN Usuario4 WITH PASSWORD = 'ContraseñaSegura4';
+CREATE USER Usuario4 FOR LOGIN Usuario4;
 
--- Asignar el rol al usuario2
-GRANT Rol2 TO usuario2;
+-- Crear el rol de solo lectura
+CREATE ROLE RolLectura;
 
--- Intentar leer la tabla Libros desde ambos usuarios
--- Conectarse como usuario1
-USE SistemaCompras_Proyecto_BdD;
-GO
-EXECUTE AS USER = 'usuario1';
-/*precedimiento*/;
+-- Otorgar permisos de SELECT sobre la tabla Producto al rol
+GRANT SELECT ON Producto TO RolLectura;
+
+-- Asignar el rol al usuario con permisos
+EXEC sp_addrolemember 'RolLectura', 'Usuario3';
+
+-- Verificar el comportamiento de ambos usuarios
+
+-- Comportamiento de UsuarioConPermisos
+EXECUTE AS USER = 'Usuario3';
+SELECT * FROM Producto;
 REVERT;
 
--- Conectarse como usuario2
-USE SistemaCompras_Proyecto_BdD;
-GO
-EXECUTE AS USER = 'usuario2';
-/*precedimiento*/;
+-- Comportamiento de UsuarioSinPermisos
+EXECUTE AS USER = 'Usuario4';
+SELECT * FROM Producto;
 REVERT;
